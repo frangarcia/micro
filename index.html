@@ -11,56 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Drink Picker</title>
-    <style>
-        body, html { margin: 0; padding: 0; }
-        #content { position:relative; display: flex; height:100vh;}
-        #content > iframe {min-height:100%;}
-    </style>
+    <title>Fran Garcia Pinned Container</title>
+    <script src="https://q1-display.ngx.dev/embed/1ba7174c-1687-47ba-86a3-a29d56286ba3?mode=fixed&width=960&height=1200"></script>
 </head>
 <body>
-    <div id="content">
-        <script src="https://r-d-web.global.ssl.fastly.net/ui/ngx.embed.min.js"></script>
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" allowTransparency="true"
-            id="ngxFrame173181"
-        ></iframe>
-    </div>
-    <script>
-        function getQueryStringValue (key) {
-            let value = '';
-            try {
-                let tmp = [];
-                var items = location.search.substr(1).split("&");
-                for (var index = 0; index < items.length; index++) {
-                    tmp = items[index].split("=");
-                    if (tmp[0] === key) value = decodeURIComponent(tmp[1]);
-                }
-            } catch (e) {
-                console.error('Malformed URL, likely caused by illegal characters in the query string.');
-            }
-            return value;
-        }
-
-        var iframeUrl = "https://r-d-web.global.ssl.fastly.net/display/container/dc/dd61867a-e4c8-4350-9bc9-0b08dff98141" + '?mode=responsive';
-        var iframe = document.querySelector("#ngxFrame173181");
-        var whitelist = ['source', 'channel', 'medium'];
-        var params = [];
-        for( var i = 0; i < whitelist.length; i++ ) {
-            var param = getQueryStringValue(whitelist[i]);
-            if ( param ) params.push(whitelist[i] + '=' + param);
-        }
-        var paramStr = params.join('&');
-        if (paramStr) {
-            iframeUrl = iframeUrl + '&' + paramStr;
-        }
-        iframe.src = iframeUrl;
-
-        NGX.Embed.registerEventHandler('app:ready', function() {
-            var custId = getQueryStringValue('nc.customerid');
-            var custIdType = getQueryStringValue('nc.customeridtype');
-            if (custId) NGX.Embed.setCustomerID(custId, custIdType);
-        });
-    </script>
-    
 </body>
 </html>
