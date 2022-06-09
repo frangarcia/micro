@@ -53,6 +53,12 @@
     var cancelDialogTitle = 'Are you sure you want to cancel?'
     var cancelDialogContent =
       'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
+    var customCategories = {
+  'New Category': {
+    purpose: 'A new consent category to capture more granular consent groupings',
+    integrations: ['Google Adwords (Classic)', 'Amplitude', 'Slack']
+  }
+}
 
     return {
       container: '#target-container',
@@ -63,7 +69,8 @@
       preferencesDialogTitle: preferencesDialogTitle,
       preferencesDialogContent: preferencesDialogContent,
       cancelDialogTitle: cancelDialogTitle,
-      cancelDialogContent: cancelDialogContent
+      cancelDialogContent: cancelDialogContent,
+        customCategories:customCategories
     }
   }
 </script>
