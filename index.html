@@ -26,17 +26,7 @@
   analytics.page();
   }}();
 </script>
-<script>
-consentManager.preferences.onPreferencesSaved(function(prefs){
-    if (prefs.customPreferences.CheetahDigital) {
-        console.log('Accepting cookies');
-        document.getElementById('content').style.display = 'none';
-    } else {
-        console.log('Rejecting cookies');        
-        document.getElementById('content').style.display = 'block';
-    }
-})    
-</script>    
+  
 </head>
 <body>
     <div id="content">
@@ -45,6 +35,16 @@ consentManager.preferences.onPreferencesSaved(function(prefs){
     <h1>You can manage your cookies preferences <a href="#" onclick="consentManager.openConsentManager()">from here</a></h1>
     <script>
   window.consentManagerConfig = function(exports) {
+    exports.preferences.onPreferencesSaved(function(prefs) {
+        if (prefs.customPreferences.CheetahDigital) {
+            console.log('Accepting cookies');
+            document.getElementById('content').style.display = 'none';
+        } else {
+            console.log('Rejecting cookies');        
+            document.getElementById('content').style.display = 'block';
+        }
+    })  
+      
     var React = exports.React
     var inEU = exports.inEU
 
