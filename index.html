@@ -58,10 +58,10 @@
     exports.preferences.onPreferencesSaved(function(prefs) {
         if (prefs.customPreferences.CheetahDigital) {
             console.log('Accepting cookies');
-            document.getElementById('content').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
         } else {
             console.log('Rejecting cookies');        
-            document.getElementById('content').style.display = 'block';
+            document.getElementById('content').style.display = 'none';            
         }
     })  
       
