@@ -26,6 +26,17 @@
   analytics.page();
   }}();
 </script>
+<script>
+consentManager.preferences.onPreferencesSaved(function(prefs){
+    if (prefs.customPreferences.CheetahDigital) {
+        console.log('Accepting cookies');
+        document.getElementById('content').style.display = 'none';
+    } else {
+        console.log('Rejecting cookies');        
+        document.getElementById('content').style.display = 'block';
+    }
+})    
+</script>    
 </head>
 <body>
     <div id="content">
