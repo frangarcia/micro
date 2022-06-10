@@ -110,6 +110,7 @@
   }
   function checkCookiePreferences(){
     if (consentManager.preferences.loadPreferences().customPreferences.CheetahDigital==false) {
+        console.log('hiding content as user did not accept cookies');
         document.getElementById('content').style.display = 'none';  
     }
   }
