@@ -56,39 +56,26 @@
     <script>
   window.consentManagerConfig = function(exports) {
     exports.preferences.onPreferencesSaved(function(prefs) {
+      	var cookies = {
+  			functional: false,
+  			analytics: false,
+  			marketing: false
+  		}
         if (prefs.customPreferences.Functional) {
             console.log('Accepting functional cookies');
-            NGX.Embed.setPrivacyConsents({
-				functional: true,
-			});
-        } else {
-        	console.log('Rejecting functional cookies');
-        	NGX.Embed.setPrivacyConsents({
-				functional: false,
-			});
+            cookies.functional = true;
         }
         if (prefs.customPreferences.Analytics) {
             console.log('Accepting analytics cookies');
-            NGX.Embed.setPrivacyConsents({
-				analytics: true,
-			});
-        } else {
-			console.log('Rejecting analytics cookies');
-            NGX.Embed.setPrivacyConsents({
-				analytics: false,
-			});
+            cookies.analytics = true;
         } 
         if (prefs.customPreferences.Marketing) {
             console.log('Accepting marketing cookies');
-            NGX.Embed.setPrivacyConsents({
-				marketing: true,
-			});
-        } else {
-        	console.log('Rejecting marketing cookies');
-            NGX.Embed.setPrivacyConsents({
-				marketing: false,
-			});
+            cookies.marketing = true;
         }
+        console.log("Setting cookies as");
+        console.log(cookies);
+        NGX.Embed.setPrivacyConsents(cookies);
     })  
       
     var React = exports.React
