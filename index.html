@@ -73,7 +73,7 @@
             console.log('Accepting marketing cookies');
             cookies.marketing = true;
         }
-        console.log("Setting cookies as");
+        console.log("Setting privacy consents as:");
         console.log(cookies);
         NGX.Embed.setPrivacyConsents(cookies);
     })  
@@ -135,8 +135,6 @@
   		analytics: false,
   		marketing: false
   	}
-  	console.log("Current preferences are");
-  	console.log(consentManager.preferences.loadPreferences());
   	if (consentManager.preferences.loadPreferences().customPreferences) {
   		console.log(consentManager.preferences.loadPreferences().customPreferences);
   		if (consentManager.preferences.loadPreferences().customPreferences.Functional==true) {
@@ -150,7 +148,7 @@
 	    }
   	} 
     
-	console.log("Current cookies are:");
+	console.log("Current privacy consents are:");
 	console.log(cookies);
     NGX.Embed.setPrivacyConsents(cookies);
   }
