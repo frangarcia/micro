@@ -45,6 +45,15 @@
   analytics.page();
   }}();
 </script>
+  
+</head>
+<body onload="checkCookiePreferences()">
+    <div id="content">
+        <script src="https://r-d-web.global.ssl.fastly.net/ui/ngx.embed.min.js"></script>
+		<iframe src="https://r-d-web.global.ssl.fastly.net/display/container/dc/66fed12f-a496-4874-9d3c-e57f9890c6b2?mode=responsive&scrolling=no" frameborder="0" scrolling="no" width="1600" height="900" id="ngxFrame174605" allowTransparency="true"></iframe>
+    </div>
+    <div id="cookiesbar">You can manage your cookies preferences <a href="#" onclick="consentManager.openConsentManager()">from here</a></div>
+    <div id="target-container"></div>
     <script>
   window.consentManagerConfig = function(exports) {
     exports.preferences.onPreferencesSaved(function(prefs) {
@@ -145,15 +154,9 @@
   }
 </script>
 
-<script src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js" defer />
-  
-</head>
-<body onload="checkCookiePreferences()">
-    <div id="content">
-        <script src="https://r-d-web.global.ssl.fastly.net/ui/ngx.embed.min.js"></script>
-		<iframe src="https://r-d-web.global.ssl.fastly.net/display/container/dc/66fed12f-a496-4874-9d3c-e57f9890c6b2?mode=responsive&scrolling=no" frameborder="0" scrolling="no" width="1600" height="900" id="ngxFrame174605" allowTransparency="true"></iframe>
-    </div>
-    <div id="cookiesbar">You can manage your cookies preferences <a href="#" onclick="consentManager.openConsentManager()">from here</a></div>
-    <div id="target-container"></div>
+<script
+  src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js"
+  defer
+></script>
 </body>
 </html>
