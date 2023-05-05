@@ -49,19 +49,45 @@
 </head>
 <body onload="checkCookiePreferences()">
     <div id="content">
-        <script src="https://xd.wayin.com/ui/ngx.embed.min.js"></script>
-        <iframe src="https://xd.wayin.com/display/container/dc/4a4360b6-2353-4a7d-85b2-d1b742b4dea5?mode=responsive" frameborder="0" scrolling="no" width="1024" height="768" id="ngxFrame216717" allowTransparency="true"></iframe>
+        <script src="https://r-d-web.global.ssl.fastly.net/ui/ngx.embed.min.js"></script>
+		<iframe src="https://r-d-web.global.ssl.fastly.net/display/container/dc/66fed12f-a496-4874-9d3c-e57f9890c6b2?mode=responsive&scrolling=no" frameborder="0" scrolling="no" width="1600" height="900" id="ngxFrame174605" allowTransparency="true"></iframe>
     </div>
     <div id="cookiesbar">You can manage your cookies preferences <a href="#" onclick="consentManager.openConsentManager()">from here</a></div>
     <script>
   window.consentManagerConfig = function(exports) {
     exports.preferences.onPreferencesSaved(function(prefs) {
-        if (prefs.customPreferences.CheetahDigital) {
-            console.log('Accepting cookies');
-            document.getElementById('content').style.display = 'block';
+        if (prefs.customPreferences.Functional) {
+            console.log('Accepting functional cookies');
+            NGX.Embed.setPrivacyConsents({
+				functional: true,
+			});
         } else {
-            console.log('Rejecting cookies');        
-            document.getElementById('content').style.display = 'none';            
+        	console.log('Rejecting functional cookies');
+        	NGX.Embed.setPrivacyConsents({
+				functional: false,
+			});
+        }
+        if (prefs.customPreferences.Analytics) {
+            console.log('Accepting analytics cookies');
+            NGX.Embed.setPrivacyConsents({
+				analytics: true,
+			});
+        } else {
+			console.log('Rejecting analytics cookies');
+            NGX.Embed.setPrivacyConsents({
+				analytics: false,
+			});
+        } 
+        if (prefs.customPreferences.Marketing) {
+            console.log('Accepting marketing cookies');
+            NGX.Embed.setPrivacyConsents({
+				marketing: true,
+			});
+        } else {
+        	console.log('Rejecting marketing cookies');
+            NGX.Embed.setPrivacyConsents({
+				marketing: false,
+			});
         }
     })  
       
@@ -88,9 +114,17 @@
     var cancelDialogContent =
       'Your preferences have not been saved. By continuing to use our website, you՚re agreeing to our Website Data Collection Policy.'
     var customCategories = {
-  'CheetahDigital': {
-    purpose: 'A new consent category to capture more granular consent groupings',
-    integrations: ['Google Adwords (Classic)', 'Amplitude', 'Slack']
+  'Functional': {
+    purpose: 'For functional purposes',
+    integrations: []
+  },
+  'Analytics': {
+    purpose: 'For analytics purposes',
+    integrations: []
+  },
+  'Marketing': {
+    purpose: 'For marketing purposes',
+    integrations: []
   }
 }
 
@@ -109,10 +143,29 @@
     }
   }
   function checkCookiePreferences(){
-    if (consentManager.preferences.loadPreferences().customPreferences.CheetahDigital==false) {
-        console.log('hiding content as user did not accept cookies');
-        document.getElementById('content').style.display = 'none';  
-    }
+  	var cookies = {
+  		functional: false,
+  		analytics: false,
+  		marketing: false
+  	}
+  	console.log("Current preferences are");
+  	console.log(consentManager.preferences.loadPreferences());
+  	if (consentManager.preferences.loadPreferences().customPreferences) {
+  		console.log(consentManager.preferences.loadPreferences().customPreferences);
+  		if (consentManager.preferences.loadPreferences().customPreferences.Functional==true) {
+        	cookies.functional = true        
+	    }
+	    if (consentManager.preferences.loadPreferences().customPreferences.Analytics==true) {
+	     	cookies.functional = true
+	    }
+	    if (consentManager.preferences.loadPreferences().customPreferences.Marketing==true) {
+	        cookies.marketing = true
+	    }
+  	} 
+    
+	console.log("Current cookies are:");
+	console.log(cookies);
+    NGX.Embed.setPrivacyConsents(cookies);
   }
 </script>
 
