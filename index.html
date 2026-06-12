@@ -42,7 +42,20 @@
 </head>
 <body">
     <div id="content">
-		<script src="https://x.wayin.com/embed/668b5f56-d6c8-485b-8973-1a5a24a9b49d?mode=adaptive&scrolling=no&openId=true"></script>
+		<script src="https://x.wayin.com/ui/ngx.embed.min.js"></script>
+<iframe frameborder="0" scrolling="no" width="100%" height="600" id="ngxFrame7bf518c6-c66e-48cb-8ead-d56bfc5ed4f6" allowTransparency="true"></iframe>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const olTok1 = params.get('nc.ol_tok1');
+
+  const iframeUrl =
+    `https://x.wayin.com/display/container/dc/7bf518c6-c66e-48cb-8ead-d56bfc5ed4f6?mode=adaptive&scrolling=no&nc.ol_tok1=${encodeURIComponent(olTok1)}}`;
+
+  document.getElementById('ngxFrame7bf518c6-c66e-48cb-8ead-d56bfc5ed4f6').src = iframeUrl;
+</script>
+		<!--<script src="https://x.wayin.com/embed/668b5f56-d6c8-485b-8973-1a5a24a9b49d?mode=adaptive&scrolling=no&openId=true"></script>-->
 
 		<!--<script src="https://x.wayin.com/embed/d18b33b6-fae7-49aa-919c-85f244316abb?mode=adaptive&scrolling=no"></script>-->
 		<!--<script src="https://x.wayin.com/ui/ngx.embed.min.js"></script><iframe data-ngx-campaign-url="https://x.wayin.com/display/container/dc/1c9ab15c-15d0-42df-b6ea-a1e4feedfc5f?mode=adaptive&scrolling=no" data-ngx-openid-url="https://api.eu.experiences.engageplatform.com/api/integration/d/onload/oauth2/dc/1c9ab15c-15d0-42df-b6ea-a1e4feedfc5f" frameborder="0" scrolling="no" width="100%" height="100%" id="ngxFrame1c9ab15c-15d0-42df-b6ea-a1e4feedfc5f" allowTransparency="true"></iframe><script src="https://x.wayin.com/ui/ngx.embed.openid.min.js"></script>-->
