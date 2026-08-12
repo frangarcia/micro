@@ -59,12 +59,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</div>
     <div id="content">
 <script>
-window.ngxReadyMicro = function() {
+//window.ngxReadyMicro = function() {
   NGX.api('register:context:provider', (campaignId) => {
 		    console.log('Providing context for', campaignId);
 		    return { onload: {"nc.ol_user_id": Math.floor(Math.random() * 1000000) + 1, "nc.ol_zync_id": Math.floor(Math.random() * 1000000) + 1, "nc.ol_campaign_id":campaignId}}
     });
-}
+//}
 </script>
 <script src="https://d3-displayx.ngx.dev/embed/dadac34a-7ac9-441a-b54f-1532ab715fb0?mode=adaptive&scrolling=no"></script>		
 		<!--<script src="https://x.wayin.com/ui/ngx.embed.min.js"></script>
