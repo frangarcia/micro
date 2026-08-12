@@ -238,5 +238,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   src="https://unpkg.com/@segment/consent-manager@5.3.0/standalone/consent-manager.js"
   defer
 ></script>
+NGX.api('register:context:provider', (campaignId) => {
+    console.log('Providing context for', campaignId);
+    return { onload: {"nc.ol_user_id": "my_user_id", "nc.ol_zync_id":"my_zync_id", "nc.ol_campaign_id":campaignId}}
+  });	
 </body>
 </html>
