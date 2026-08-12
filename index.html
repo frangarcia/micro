@@ -58,8 +58,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</p>
 	</div>
     <div id="content">
-<!--<script>
+<script>
 window.ngxReadyMicro = function() {
+  console.log("calling ngxReadyMicro");
   NGX.api('register:context:provider', (campaignId) => {
 		    console.log('Providing context for', campaignId);
 	  		if (campaignId==1290){
@@ -68,10 +69,10 @@ window.ngxReadyMicro = function() {
 	  		return;		    
     });
 }
-</script>-->
+</script>
 
 <script src="https://d3-displayx.ngx.dev/ui/ngx.embed.min.js"></script>
-<script>
+<!--<script>
   NGX.api('register:context:provider', (campaignId) => {
 		    console.log('Providing context for', campaignId);
 	  		if (campaignId==1290){
@@ -79,7 +80,7 @@ window.ngxReadyMicro = function() {
 			}
 	  		return;		    
     });
-</script>		
+</script>-->
 <!--Campaign 1291-->
 <iframe src="https://d3-displayx.ngx.dev/display/container/dc/309d9b82-56bb-4094-89be-4bb13ee93afb?mode=adaptive&scrolling=no" frameborder="0" scrolling="no" width="100%" height="600" id="ngxFrame309d9b82-56bb-4094-89be-4bb13ee93afb" allowTransparency="true"></iframe>		
 <!--Campaign 1290-->
